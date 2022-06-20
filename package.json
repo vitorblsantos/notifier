@@ -1,0 +1,50 @@
+{
+  "author": "visantos@sbt.com.br",
+  "bugs": {
+    "url": "https://github.com/tvsbt/sbt-news-rss/issues"
+  },
+  "description": "SBT News RSS generator",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "concurrently": "^6.3.0",
+    "cross-env": "^7.0.3",
+    "eslint": "^7.0.0",
+    "eslint-config-standard": "^16.0.3",
+    "eslint-plugin-import": "^2.25.2",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^5.1.1",
+    "husky": "^4.0.10",
+    "lint-staged": "^10.0.0",
+    "nodemon": "^2.0.14",
+    "prettier": "^2.4.1",
+    "standard": "^16.0.4",
+    "sucrase": "^3.20.3"
+  },
+  "homepage": "https://github.com/tvsbt/sbt-news-rss#readme",
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "license": "UNLICENSED",
+  "lint-staged": {
+    "*.js": "eslint"
+  },
+  "main": "./app/server.js",
+  "name": "sbt-news-rss",
+  "private": "true",
+  "repository": {
+    "type": "git",
+    "url": "git+git@github.com:tvsbt/sbt-news-rss.git"
+  },
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development concurrently --kill-others-on-fail \"nodemon app/server\"",
+    "lint": "eslint app",
+    "start": "cross-env NODE_ENV=production concurrently --kill-others-on-fail \"sucrase-node app/server\""
+  },
+  "type": "module",
+  "version": "1.0.0"
+}
