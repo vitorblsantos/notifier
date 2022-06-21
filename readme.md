@@ -18,8 +18,8 @@
 Clone these template, install dependencies and be happy:
 
 ```sh
-  git clone git@github.com:tvsbt/sbt-news-rss.git
-  cd sbt-news-rss
+  git clone git@github.com:tvsbt/mailer.git
+  cd mailer
   npm i
   npm run dev - to run development version
   npm run lint - to run linter on project files

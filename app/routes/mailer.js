@@ -4,6 +4,6 @@ import { mailer } from '../controllers/index.js'
 
 const router = Router()
 
-router.get('/', mailer)
+router.post('/', mailer.send)
 
 export default router
