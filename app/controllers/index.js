@@ -1,5 +1,5 @@
-import mailer from './mailer'
+import email from './email'
 
 export {
-  mailer
+  email
 }

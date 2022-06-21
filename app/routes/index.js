@@ -1,7 +1,7 @@
-import mailer from './mailer.js'
-import status from './status.js'
+import email from './email'
+import status from './status'
 
 export {
-  mailer,
+  email,
   status
 }

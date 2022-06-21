@@ -1,9 +1,9 @@
 import { Router } from 'express'
 
-import { mailer } from '../controllers/index.js'
+import { email } from '../../controllers'
 
 const router = Router()
 
-router.post('/', mailer.send)
+router.post('/', email.submit)
 
 export default router

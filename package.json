@@ -1,9 +1,9 @@
 {
-  "author": "visantos@sbt.com.br",
+  "author": "vitorblsantos@gmail.com",
   "bugs": {
-    "url": "https://github.com/tvsbt/sbt-news-rss/issues"
+    "url": "https://github.com/vitorblsantos/notifier/issues"
   },
-  "description": "SBT News RSS generator",
+  "description": "Simple API that helps to send notifications",
   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^16.0.1",
@@ -25,22 +25,27 @@
     "standard": "^16.0.4",
     "sucrase": "^3.20.3"
   },
-  "homepage": "https://github.com/tvsbt/sbt-news-rss#readme",
+  "homepage": "https://github.com/vitorblsantos/notifier#readme",
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged"
     }
   },
+  "keywords": [
+    "E-mail notification",
+    "email notification",
+    "notification"
+  ],
   "license": "UNLICENSED",
   "lint-staged": {
     "*.js": "eslint"
   },
   "main": "./app/server.js",
-  "name": "sbt-news-rss",
+  "name": "notifier",
   "private": "true",
   "repository": {
     "type": "git",
-    "url": "git+git@github.com:tvsbt/sbt-news-rss.git"
+    "url": "git+git@github.com:vitorblsantos/notifier.git"
   },
   "scripts": {
     "dev": "cross-env NODE_ENV=development concurrently --kill-others-on-fail \"nodemon\"",
