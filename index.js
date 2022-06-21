@@ -1,8 +1,6 @@
-import dotenv from 'dotenv'
+import 'dotenv/config'
 
 import api from './app'
-
-if (process.env.NODE_ENV === 'development') dotenv.config()
 
 const { API_PORT } = process.env || 8080
 
