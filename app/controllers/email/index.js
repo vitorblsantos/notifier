@@ -6,7 +6,7 @@
 
 import mailer from 'nodemailer'
 
-import { handleProvider } from './provider'
+import { handler } from './provider'
 
 const submit = async (req, res) => {
   const { content, emailList, provider } = req.body
@@ -15,7 +15,7 @@ const submit = async (req, res) => {
   if (!emailList) return res.status(400).send('E-mail list cannot be null')
 
   try {
-    const { config, from } = handleProvider(provider)
+    const { config, from } = handler(provider)
     const transporter = mailer.createTransport(config)
 
     await Promise.all(emailList.split(',').map(async email => (

@@ -1,3 +1,5 @@
+import providers from './providers'
+
 const {
   AUTH_FROM,
   AUTH_SECURE,
@@ -18,17 +20,11 @@ const {
   AUTH_USER_YAHOO
 } = process.env
 
-const availableProviders = [
-  'gmail',
-  'outlook',
-  'yahoo'
-]
-
-export const handleProvider = provider => {
+export default (provider) => {
   if (!provider) throw new Error('Provider not specified')
   provider = provider.toLowerCase()
 
-  if (!availableProviders.includes(provider)) throw Error(`Provider not found. Available providers: ${availableProviders}`)
+  if (!providers.includes(provider)) throw Error(`Provider not found. Available providers: ${providers}`)
 
   const config = {
     auth: {
