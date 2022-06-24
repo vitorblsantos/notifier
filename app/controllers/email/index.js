@@ -9,10 +9,11 @@ import mailer from 'nodemailer'
 import { handler } from './provider'
 
 const submit = async (req, res) => {
-  const { content, emailList, provider } = req.body
+  const { content, emailList, provider, subject } = req.body
 
   if (!content) return res.status(400).send('Content cannot be null')
   if (!emailList) return res.status(400).send('E-mail list cannot be null')
+  if (!subject) return res.status(400).send('Subject cannot be null')
 
   try {
     const { config, from } = handler(provider)
@@ -22,7 +23,7 @@ const submit = async (req, res) => {
       await transporter.sendMail({
         from,
         to: email.trim(),
-        subject: 'Teste de template',
+        subject,
         html: content
       })
     )))
