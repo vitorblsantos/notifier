@@ -1,10 +1,10 @@
-import { Schema } from 'mongoose'
+import mongoose from 'mongoose'
 
-export default new Schema({
-  _id: Schema.Types.String,
+export default new mongoose.Schema({
+  _id: mongoose.Schema.Types.String,
   active: {
     default: true,
-    type: Schema.Types.Boolean
+    type: mongoose.Schema.Types.Boolean
   },
-  name: Schema.Types.String
+  name: mongoose.Schema.Types.String
 }, { timestamps: true })

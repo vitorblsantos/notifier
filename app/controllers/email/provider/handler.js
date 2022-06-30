@@ -1,4 +1,4 @@
-import providers from './providers'
+import available from './available'
 
 const {
   AUTH_FROM,
@@ -24,7 +24,7 @@ export default (provider) => {
   if (!provider) throw new Error('Provider not specified')
   provider = provider.toLowerCase()
 
-  if (!providers.includes(provider)) throw Error(`Provider not found. Available providers: ${providers}`)
+  if (!available.includes(provider)) throw Error(`Provider not found. Available available: ${available}`)
 
   const config = {
     auth: {

@@ -1,7 +1,8 @@
-import mongoose from 'mongoose'
 import 'dotenv/config'
 
 import api from './app'
+
+import mongoose from 'mongoose'
 
 const { API_PORT } = process.env || 8080
 const { MONGO_DB, MONGO_PARAMS, MONGO_PASSWORD, MONGO_URL, MONGO_USER } = process.env

@@ -1,7 +1,5 @@
 {
   "env": {
-    "browser": false,
-    "commonjs": true,
     "es2021": true,
     "node": true
   },
@@ -9,6 +7,7 @@
     "standard",
     "eslint:recommended",
     "plugin:import/errors",
+    "plugin:import/recommended",
     "plugin:import/warnings",
     "plugin:node/recommended",
     "plugin:promise/recommended"
@@ -22,11 +21,23 @@
     "sourceType": "module"
   },
   "rules": {
+    "consistent-return": "warn",
+    "consistent-this": "warn",
     "comma-dangle": 1,
+    "import/default": 2,
+    "import/export": 2,
+    "import/named": 2,
+    "import/namespace": 2,
+    "import/no-unresolved": "error",
+    "import/no-extraneous-dependencies": "error",
     "indent": [
       "warn",
       2
     ],
+    "node/no-extraneous-require": "off",
+    "node/no-extraneous-import": "off",
+    "node/no-missing-import": "off",
+    "node/no-missing-require": "off",
     "no-extra-semi": 1,
     "no-use-before-define": 1,
     "quotes": [
@@ -36,6 +47,22 @@
     "semi": [
       "warn",
       "never"
-    ]
+    ],
+    "sort-imports": ["error"]
+  },
+  "settings": {
+    "import/resolver": {
+      "alias": {
+        "extensions": [".js"],
+        "map": [
+          ["~", "./app"],
+          ["#controllers","./app/controllers"],
+          ["#middlewares","./app/middlewares"],
+          ["#models","./app/models"],
+          ["#routes","./app/routes"],
+          ["#utils","./app/utils"]
+        ]
+      }
+    }
   }
 }

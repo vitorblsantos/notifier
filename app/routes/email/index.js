@@ -1,6 +1,6 @@
 import { Router } from 'express'
 
-import { email } from '../../controllers'
+import { email } from '#controllers'
 
 const router = Router()
 
