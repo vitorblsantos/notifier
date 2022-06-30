@@ -1,20 +1,27 @@
 
 import { handleErrors } from '#utils'
 import { users } from '#models'
-// import { v4 } from 'uuid'
+import { v4 } from 'uuid'
 
-const create = ({ body }, res) => {
+const create = async ({ body }, res) => {
   const { name } = body
 
-  try {
-    // const _id = v4()
+  if (!name) return handleErrors({ err: 'name cannot be null', res })
 
-    return users.find({ name }, (err, data) => {
-      if (err) return handleErrors(err)
-      return res.status(200).send(data)
+  try {
+    const _id = v4()
+    const user = await users.findOne({ name }).exec()
+
+    if (user) return handleErrors({ err: 'user already exists', res })
+
+    await users.create({
+      _id,
+      name
     })
-  } catch (err) {
-    return handleErrors(err)
+
+    return res.status(200).send('user created')
+  } catch ({ err: message }) {
+    return handleErrors({ err: message, res })
   }
 }
 
