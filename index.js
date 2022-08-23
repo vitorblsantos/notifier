@@ -4,10 +4,10 @@ import api from './app'
 
 import mongoose from 'mongoose'
 
-const { API_PORT } = process.env || 8080
-const { MONGO_DB, MONGO_PARAMS, MONGO_PASSWORD, MONGO_URL, MONGO_USER } = process.env
+const { API_PORT, NODE_ENV } = process.env || 8080
 
-const url = `mongodb+srv://${encodeURIComponent(MONGO_USER)}:${encodeURIComponent(MONGO_PASSWORD)}@${MONGO_URL}/${MONGO_DB}?${MONGO_PARAMS}`
+const { MONGO_DB, MONGO_PARAMS, MONGO_PASSWORD, MONGO_URL, MONGO_USER } = process.env
+const url = NODE_ENV === 'local' ? 'mongodb://127.0.0.1:27017' : `mongodb+srv://${encodeURIComponent(MONGO_USER)}:${encodeURIComponent(MONGO_PASSWORD)}@${MONGO_URL}/${MONGO_DB}?${MONGO_PARAMS}`
 
 mongoose.connect(url, {
   useNewUrlParser: true,
